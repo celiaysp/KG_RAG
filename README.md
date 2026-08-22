@@ -1,25 +1,10 @@
 ###### Este repositório contém o código e os resultados do artigo publicado no KDMiLe 2026.
 
-# KG-RAG: Uma Arquitetura de Recuperação Híbrida para Documentos Normativos Institucionais
+# KG-RAG: A Hybrid Retrieval Architecture for Institutional Normative Documents
 
-## Resumo
-Instituições de ensino superior lidam diariamente com documentos normativos hierárquicos complexos, um cenário onde sistemas tradicionais de Geração Aumentada por Recuperação (RAG) sofrem com fragmentação de contexto e alucinações. Além disso, a gestão de dados públicos exige processamento estritamente local para garantir a soberania tecnológica. Para superar essas limitações, este artigo propõe e avalia a arquitetura Knowledge Graph RAG (KG-RAG), um pipeline híbrido aplicado ao ecossistema documental da Universidade Federal do Oeste do Pará (UFOPA). O modelo integra uma ontologia institucional, *Contextual Chunking* e decomposição de consultas para isolar as fronteiras administrativas antes da geração da resposta, processando um corpus de 11.047 fragmentos (chunks). Uma avaliação empírica usando o framework RAGAS demonstrou que a abordagem superou um modelo base (baseline) híbrido padrão, alcançando ganhos de 30,1% em Fidelidade (*Faithfulness*) e 35,2% em Revocação de Contexto (*Context Recall*). Os resultados evidenciam que a recuperação guiada por relações lógicas mitiga a perda de contexto em normativas profundas, garantindo exatidão informacional e privacidade em ambientes governamentais fechados.
+## Abstract
+Higher education institutions deal with complex hierarchical normative documents, a scenario where traditional Retrieval-Augmented Generation (RAG) systems suffer from context fragmentation and hallucinations. Furthermore, public data management requires strictly local processing to ensure technological sovereignty. To address these limitations, this paper proposes and evaluates the Knowledge Graph RAG (KG-RAG) architecture, a hybrid pipeline applied to the documentary ecosystem of the Federal University of Western Pará (UFOPA). The model integrates an institutional ontology, Contextual Chunking, and query decomposition to isolate administrative boundaries before response generation, processing a corpus of 11.047 chunks. An empirical evaluation using the RAGAS framework demonstrated that the approach outperformed a standard hybrid baseline, achieving gains of 30.1% in Faithfulness and 35.2% in Context Recall. The results evidence that retrieval guided by logical relationships mitigates context loss in deep normatives, ensuring informational accuracy and privacy in closed government environments.
 
-## Publicação e Base de Dados
-> O repositório foi impulsionado pela proposta e avaliação da arquitetura KG-RAG aplicada ao ecossistema documental da Universidade Federal do Oeste do Pará (UFOPA). A pesquisa foi aceita e publicada no seguinte evento científico:
-- Simpósio Brasileiro de Descoberta de Conhecimento, Mineração e Aprendizado (KDMiLe) 2025
-
-  | Tipo de Documento | Fonte | Total Processado |
-  | :-----: | :------------------: | :-----: |
-  | Relatórios de Gestão | UFOPA (2024-2026) | 2 |
-  | Boletins de Serviço | UFOPA (2024-2026) | 31 |
-  | **Total** | **Ecossistema UFOPA** | **33** |
-
-## Conteúdo
-1. [Script de Ingestão (ingest_kg_rag.py)](ingest_kg_rag.py): Pipeline para extração multimodal de PDFs usando PyMuPDF4LLM, limpeza de dados, *Contextual Chunking* e geração de índices para ChromaDB, BM25 e FalkorDB.
-2. [Script da Aplicação (app_kag_rag.py)](app_kag_rag.py): Interface conversacional construída com Chainlit que orquestra a decomposição de consultas, busca híbrida (Semântica, Léxica e Estrutural), re-rankeamento com Cross-Encoder e geração de respostas fundamentadas utilizando o modelo Gemma 3 (12b).
-3. [Diretório de Dados (data/)](#): Pasta de destino para alocar os documentos oficiais em PDF (ex: relatórios de gestão, resoluções, editais) antes da execução da ingestão.
-4. [Diretório Vetorial (vectorstore/)](#): Caminho de armazenamento local contendo os vetores gerados pelo banco ChromaDB e o índice léxico BM25 salvo em formato pickle.
 
 ## Autores 
 <table>
